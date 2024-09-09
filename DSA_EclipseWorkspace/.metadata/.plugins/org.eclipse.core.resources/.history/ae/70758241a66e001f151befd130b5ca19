@@ -1,0 +1,19 @@
+/*
+ * Given an array of size N and an integer 'target'. Find the indices(i, j) of two
+   numbers such that their sum is equal to target. (i != J)
+   You can assume that there will be exactly one solution.
+   
+   Time complexity = O(nSquare)
+   Space complexity = O(1)
+   
+   Logic: Required number = (Target - arr[i]);
+   Using: HashMap
+ */
+
+package Arrays;
+
+public class twoSum {
+	public static void main(String[] args) {
+		int[] arr = {11,3,7,9,14, 2};
+	}
+}
