@@ -23,7 +23,7 @@ DSA/
 ### **1. Introduction.md**
 This file contains an **introduction to DSA**, explaining its importance, real-world applications, and how learning DSA helps in problem-solving and interview preparation.
 
-### **2. Notes/**
+### **2. Notes**
 This folder contains **theoretical concepts** of various DSA topics, including:
 - **Arrays.md**: Covers arrays, their properties, operations, and use cases.
 - **Datatype.md**: Explains different data types and their importance.
@@ -37,11 +37,11 @@ This file contains a **structured study plan** to help you learn DSA in a system
 - Problem-solving strategies
 - Coding interview preparation
 
-### **4. practice Sheets/**
+### **4. practice Sheets**
 This folder contains **problem sets** to help you apply your knowledge. It includes popular **DSA problem sheets** used for coding practice.
 - **DSA SHEET - DSA Series Sheet.pdf**: A curated list of problems to solve, covering various DSA topics.
 
-### **5. StandardProblems/**
+### **5. StandardProblems**
 This section includes the **most popular algorithms and problems in DSA**, with detailed breakdowns.
 - **Algorithms/** folder contains categorized problems (e.g., searching, sorting).
 - **Search.md**: Covers searching algorithms like Linear Search and Binary Search.
