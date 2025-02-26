@@ -1,31 +1,25 @@
-# **Bubble Sort Algorithm**
+# **Sorting Algorithms: Bubble Sort & Selection Sort**
 
 ## **Introduction**
-
-Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The process is repeated until the list is sorted.
-
-Although Bubble Sort is not the most efficient sorting algorithm, it is widely used for educational purposes as it is easy to understand and implement.
+Sorting algorithms are fundamental in computer science and help arrange data in a specific order, typically ascending or descending. Two basic sorting algorithms, **Bubble Sort** and **Selection Sort**, are widely used for educational purposes due to their simplicity and easy implementation.
 
 ---
 
-## **How Bubble Sort Works?**
+# **Bubble Sort Algorithm**
 
-Bubble Sort works by repeatedly swapping adjacent elements if they are in the wrong order. The largest element "bubbles" to the end in each iteration, hence the name **Bubble Sort**.
+## **How Bubble Sort Works?**
+Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The process is repeated until the entire list is sorted.
 
 ### **Example: Sorting [45, 10, 18, 17, 7] in Ascending Order**
-
 1. Compare `45` and `10`, swap → `[10, 45, 18, 17, 7]`
 2. Compare `45` and `18`, swap → `[10, 18, 45, 17, 7]`
 3. Compare `45` and `17`, swap → `[10, 18, 17, 45, 7]`
 4. Compare `45` and `7`, swap → `[10, 18, 17, 7, 45]`
 5. The largest element `45` is now placed at the end.
 
-This process is repeated until the entire array is sorted.
-
 ---
 
 ## **Algorithm**
-
 1. Repeat for `n-1` passes:
    - Iterate over the list.
    - Compare adjacent elements.
@@ -35,7 +29,6 @@ This process is repeated until the entire array is sorted.
 ---
 
 ## **Pseudocode**
-
 ```pseudo
 procedure bubbleSort(array)
     for i from 0 to length(array) - 1 do:
@@ -52,28 +45,19 @@ end procedure
 ---
 
 ## **Implementation in Java**
-
 ```java
 import java.util.Arrays;
 
 public class SortingAlgorithms {
-
     public static void main(String[] args) {
-
         int[] arr = {45, 10, 18, 17, 7};
-
-        // * Uncomment below line to test bubble sort
-        int[] resultBubbleSort = bubbleSort(arr);
-
-        // * Print the resultBubbleSort=> bubble sort
-        System.out.print("Sorted array using bubble sort: " + Arrays.toString(resultBubbleSort));
-
+        bubbleSort(arr);
+        System.out.print("Sorted array using bubble sort: " + Arrays.toString(arr));
     }
-
-    public static int[] bubbleSort(int[] arr) {
+    public static void bubbleSort(int[] arr) {
         int size = arr.length;
-        for (int i = 0; i < size - 1; i++) { // Corrected loop condition
-            for (int j = 0; j < size - i - 1; j++) { // Prevent out-of-bounds access
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
@@ -81,54 +65,82 @@ public class SortingAlgorithms {
                 }
             }
         }
-        return arr;
     }
-
 }
 ```
 
-🔴 **Fix Applied:** The original Java implementation had an `ArrayIndexOutOfBoundsException` because it accessed `arr[j + 1]` even when `j` was at the last index. The corrected code ensures `j` runs only up to `size - i - 1`.
+---
+
+# **Selection Sort Algorithm**
+
+## **How Selection Sort Works?**
+Selection Sort divides the list into two sections: **sorted** and **unsorted**. It repeatedly finds the **minimum (or maximum) value** in the unsorted section and swaps it with the first unsorted element, reducing the number of swaps compared to Bubble Sort.
+
+### **Example: Sorting [6, 5, 2, 8, 3, 7] in Ascending Order**
+- Find the minimum value (`2`), swap it with the first element → `[2, 5, 6, 8, 3, 7]`
+- Find the next minimum (`3`), swap with second element → `[2, 3, 6, 8, 5, 7]`
+- Find the next minimum (`5`), swap with third element → `[2, 3, 5, 8, 6, 7]`
+- Find the next minimum (`6`), swap with fourth element → `[2, 3, 5, 6, 8, 7]`
+- Find the next minimum (`7`), swap with fifth element → `[2, 3, 5, 6, 7, 8]`
+- The list is now sorted.
 
 ---
 
-## **Theory**
-
-- **Bubble Sort** works by repeatedly **comparing and swapping adjacent elements**.
-- The largest element moves to its correct position at the end after each pass.
-- **Best case:** Already sorted list → **O(n)**
-- **Worst case:** Reverse sorted list → **O(n²)**
-
----
-
-## **Time Complexity**
-
-| Case         | Complexity                 |
-| ------------ | -------------------------- |
-| Best Case    | **O(n)** (already sorted)  |
-| Worst Case   | **O(n²)** (reverse sorted) |
-| Average Case | **O(n²)**                  |
-
-### **Space Complexity**
-
-- **O(1)** (In-place sorting, no extra memory required)
+## **Algorithm**
+1. Iterate over the array.
+2. Find the minimum element from the unsorted part.
+3. Swap it with the first unsorted element.
+4. Repeat until the list is sorted.
 
 ---
 
-## **Advantages**
-
-✅ **Simple and Easy** - Easy to understand and implement.  
-✅ **No Extra Space** - Requires only O(1) extra memory.  
-✅ **Stable Sort** - Maintains the relative order of equal elements.
+## **Pseudocode**
+```pseudo
+procedure selectionSort(array)
+    for i from 0 to length(array) - 1 do:
+        minIndex = i
+        for j from i + 1 to length(array) - 1 do:
+            if array[j] < array[minIndex] then:
+                minIndex = j
+        swap(array[i], array[minIndex])
+end procedure
+```
 
 ---
 
-## **Disadvantages**
+## **Implementation in Java**
+```java
+import java.util.Arrays;
 
-❌ **Slow for Large Data** - O(n²) makes it inefficient for large datasets.  
-❌ **Unnecessary Comparisons** - Even when sorted, it still checks all elements.
+public class SelectionSort {
+    public static void main(String[] args) {
+        int[] arr = {6, 5, 2, 8, 3, 7};
+        selectionSort(arr);
+        System.out.println("Sorted array using selection sort: " + Arrays.toString(arr));
+    }
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+    }
+}
+```
 
 ---
 
-## **Conclusion**
+## **Comparison and Conclusion**
+- **Bubble Sort** swaps adjacent elements multiple times, making it inefficient.
+- **Selection Sort** reduces the number of swaps by selecting the minimum (or maximum) element in each iteration.
+- Both algorithms have a time complexity of **O(n²)**, making them inefficient for large datasets.
+- These algorithms are mainly used for **educational purposes** to demonstrate sorting principles.
+- In practice, more efficient sorting algorithms like **Merge Sort** and **Quick Sort** are preferred.
 
-Bubble Sort is a basic sorting algorithm that is **easy to implement but inefficient for large datasets**. It is mainly used for **educational purposes** to demonstrate sorting concepts, but in real-world applications, more efficient algorithms like **Merge Sort** or **Quick Sort** are preferred.
