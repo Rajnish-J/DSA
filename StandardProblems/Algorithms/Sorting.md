@@ -1,8 +1,7 @@
-### **`README.md`**
-```md
 # **Bubble Sort Algorithm**
 
 ## **Introduction**
+
 Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The process is repeated until the list is sorted.
 
 Although Bubble Sort is not the most efficient sorting algorithm, it is widely used for educational purposes as it is easy to understand and implement.
@@ -10,9 +9,11 @@ Although Bubble Sort is not the most efficient sorting algorithm, it is widely u
 ---
 
 ## **How Bubble Sort Works?**
+
 Bubble Sort works by repeatedly swapping adjacent elements if they are in the wrong order. The largest element "bubbles" to the end in each iteration, hence the name **Bubble Sort**.
 
 ### **Example: Sorting [45, 10, 18, 17, 7] in Ascending Order**
+
 1. Compare `45` and `10`, swap → `[10, 45, 18, 17, 7]`
 2. Compare `45` and `18`, swap → `[10, 18, 45, 17, 7]`
 3. Compare `45` and `17`, swap → `[10, 18, 17, 45, 7]`
@@ -24,6 +25,7 @@ This process is repeated until the entire array is sorted.
 ---
 
 ## **Algorithm**
+
 1. Repeat for `n-1` passes:
    - Iterate over the list.
    - Compare adjacent elements.
@@ -33,6 +35,7 @@ This process is repeated until the entire array is sorted.
 ---
 
 ## **Pseudocode**
+
 ```pseudo
 procedure bubbleSort(array)
     for i from 0 to length(array) - 1 do:
@@ -49,6 +52,7 @@ end procedure
 ---
 
 ## **Implementation in Java**
+
 ```java
 import java.util.Arrays;
 
@@ -82,11 +86,13 @@ public class SortingAlgorithms {
 
 }
 ```
+
 🔴 **Fix Applied:** The original Java implementation had an `ArrayIndexOutOfBoundsException` because it accessed `arr[j + 1]` even when `j` was at the last index. The corrected code ensures `j` runs only up to `size - i - 1`.
 
 ---
 
 ## **Theory**
+
 - **Bubble Sort** works by repeatedly **comparing and swapping adjacent elements**.
 - The largest element moves to its correct position at the end after each pass.
 - **Best case:** Already sorted list → **O(n)**
@@ -95,31 +101,34 @@ public class SortingAlgorithms {
 ---
 
 ## **Time Complexity**
-| Case      | Complexity |
-|-----------|------------|
-| Best Case | **O(n)** (already sorted) |
-| Worst Case | **O(n²)** (reverse sorted) |
-| Average Case | **O(n²)** |
+
+| Case         | Complexity                 |
+| ------------ | -------------------------- |
+| Best Case    | **O(n)** (already sorted)  |
+| Worst Case   | **O(n²)** (reverse sorted) |
+| Average Case | **O(n²)**                  |
 
 ### **Space Complexity**
+
 - **O(1)** (In-place sorting, no extra memory required)
 
 ---
 
 ## **Advantages**
+
 ✅ **Simple and Easy** - Easy to understand and implement.  
 ✅ **No Extra Space** - Requires only O(1) extra memory.  
-✅ **Stable Sort** - Maintains the relative order of equal elements.  
+✅ **Stable Sort** - Maintains the relative order of equal elements.
 
 ---
 
 ## **Disadvantages**
+
 ❌ **Slow for Large Data** - O(n²) makes it inefficient for large datasets.  
-❌ **Unnecessary Comparisons** - Even when sorted, it still checks all elements.  
+❌ **Unnecessary Comparisons** - Even when sorted, it still checks all elements.
 
 ---
 
 ## **Conclusion**
-Bubble Sort is a basic sorting algorithm that is **easy to implement but inefficient for large datasets**. It is mainly used for **educational purposes** to demonstrate sorting concepts, but in real-world applications, more efficient algorithms like **Merge Sort** or **Quick Sort** are preferred.
 
----
+Bubble Sort is a basic sorting algorithm that is **easy to implement but inefficient for large datasets**. It is mainly used for **educational purposes** to demonstrate sorting concepts, but in real-world applications, more efficient algorithms like **Merge Sort** or **Quick Sort** are preferred.
