@@ -1,16 +1,19 @@
-# **Sorting Algorithms: Bubble Sort & Selection Sort**
+# **Sorting Algorithms: Bubble Sort, Selection Sort & Insertion Sort**
 
 ## **Introduction**
-Sorting algorithms are fundamental in computer science and help arrange data in a specific order, typically ascending or descending. Two basic sorting algorithms, **Bubble Sort** and **Selection Sort**, are widely used for educational purposes due to their simplicity and easy implementation.
+
+Sorting algorithms are fundamental in computer science and help arrange data in a specific order, typically ascending or descending. Three basic sorting algorithms, **Bubble Sort**, **Selection Sort**, and **Insertion Sort**, are widely used for educational purposes due to their simplicity and easy implementation.
 
 ---
 
 # **Bubble Sort Algorithm**
 
 ## **How Bubble Sort Works?**
+
 Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The process is repeated until the entire list is sorted.
 
 ### **Example: Sorting [45, 10, 18, 17, 7] in Ascending Order**
+
 1. Compare `45` and `10`, swap → `[10, 45, 18, 17, 7]`
 2. Compare `45` and `18`, swap → `[10, 18, 45, 17, 7]`
 3. Compare `45` and `17`, swap → `[10, 18, 17, 45, 7]`
@@ -20,6 +23,7 @@ Bubble Sort repeatedly steps through the list, compares adjacent elements, and s
 ---
 
 ## **Algorithm**
+
 1. Repeat for `n-1` passes:
    - Iterate over the list.
    - Compare adjacent elements.
@@ -29,6 +33,7 @@ Bubble Sort repeatedly steps through the list, compares adjacent elements, and s
 ---
 
 ## **Pseudocode**
+
 ```pseudo
 procedure bubbleSort(array)
     for i from 0 to length(array) - 1 do:
@@ -45,6 +50,7 @@ end procedure
 ---
 
 ## **Implementation in Java**
+
 ```java
 import java.util.Arrays;
 
@@ -74,9 +80,11 @@ public class SortingAlgorithms {
 # **Selection Sort Algorithm**
 
 ## **How Selection Sort Works?**
+
 Selection Sort divides the list into two sections: **sorted** and **unsorted**. It repeatedly finds the **minimum (or maximum) value** in the unsorted section and swaps it with the first unsorted element, reducing the number of swaps compared to Bubble Sort.
 
 ### **Example: Sorting [6, 5, 2, 8, 3, 7] in Ascending Order**
+
 - Find the minimum value (`2`), swap it with the first element → `[2, 5, 6, 8, 3, 7]`
 - Find the next minimum (`3`), swap with second element → `[2, 3, 6, 8, 5, 7]`
 - Find the next minimum (`5`), swap with third element → `[2, 3, 5, 8, 6, 7]`
@@ -87,6 +95,7 @@ Selection Sort divides the list into two sections: **sorted** and **unsorted**. 
 ---
 
 ## **Algorithm**
+
 1. Iterate over the array.
 2. Find the minimum element from the unsorted part.
 3. Swap it with the first unsorted element.
@@ -95,6 +104,7 @@ Selection Sort divides the list into two sections: **sorted** and **unsorted**. 
 ---
 
 ## **Pseudocode**
+
 ```pseudo
 procedure selectionSort(array)
     for i from 0 to length(array) - 1 do:
@@ -109,6 +119,7 @@ end procedure
 ---
 
 ## **Implementation in Java**
+
 ```java
 import java.util.Arrays;
 
@@ -137,10 +148,49 @@ public class SelectionSort {
 
 ---
 
-## **Comparison and Conclusion**
-- **Bubble Sort** swaps adjacent elements multiple times, making it inefficient.
-- **Selection Sort** reduces the number of swaps by selecting the minimum (or maximum) element in each iteration.
-- Both algorithms have a time complexity of **O(n²)**, making them inefficient for large datasets.
-- These algorithms are mainly used for **educational purposes** to demonstrate sorting principles.
-- In practice, more efficient sorting algorithms like **Merge Sort** and **Quick Sort** are preferred.
+# **Insertion Sort Algorithm**
 
+## **How Insertion Sort Works?**
+
+Insertion Sort builds a sorted array one element at a time. It picks an element and inserts it at its correct position in the already sorted part of the array.
+
+### **Example: Sorting [7, 3, 5, 2, 8] in Ascending Order**
+
+1. Take `3`, insert before `7` → `[3, 7, 5, 2, 8]`
+2. Take `5`, insert between `3` and `7` → `[3, 5, 7, 2, 8]`
+3. Take `2`, insert before `3` → `[2, 3, 5, 7, 8]`
+4. The list is now sorted.
+
+---
+
+## **Implementation in Java**
+
+```java
+import java.util.Arrays;
+
+public class InsertionSort {
+    public static void main(String[] args) {
+        int[] arr = {7, 3, 5, 2, 8};
+        insertionSort(arr);
+        System.out.println("Sorted array using insertion sort: " + Arrays.toString(arr));
+    }
+    public static void insertionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = key;
+        }
+    }
+}
+```
+
+---
+
+## **Conclusion**
+
+Bubble Sort, Selection Sort, and Insertion Sort are simple sorting algorithms mainly used for educational purposes. More efficient sorting methods, such as Merge Sort and Quick Sort, are preferred for larger datasets.
