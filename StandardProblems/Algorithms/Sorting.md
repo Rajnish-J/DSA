@@ -1,28 +1,18 @@
-# **Sorting Algorithms: Bubble Sort, Selection Sort & Insertion Sort**
+# Sorting Algorithms: Bubble Sort, Selection Sort, Insertion Sort & Merge Sort
 
-## **Introduction**
+## Introduction
 
-Sorting algorithms are fundamental in computer science and help arrange data in a specific order, typically ascending or descending. Three basic sorting algorithms, **Bubble Sort**, **Selection Sort**, and **Insertion Sort**, are widely used for educational purposes due to their simplicity and easy implementation.
+Sorting algorithms are fundamental in computer science and help arrange data in a specific order, typically ascending or descending. Four commonly used sorting algorithms, **Bubble Sort**, **Selection Sort**, **Insertion Sort**, and **Merge Sort**, are widely used for educational purposes due to their simplicity and easy implementation.
 
 ---
 
-# **Bubble Sort Algorithm**
+## Bubble Sort Algorithm
 
-## **How Bubble Sort Works?**
+### How Bubble Sort Works?
 
 Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The process is repeated until the entire list is sorted.
 
-### **Example: Sorting [45, 10, 18, 17, 7] in Ascending Order**
-
-1. Compare `45` and `10`, swap → `[10, 45, 18, 17, 7]`
-2. Compare `45` and `18`, swap → `[10, 18, 45, 17, 7]`
-3. Compare `45` and `17`, swap → `[10, 18, 17, 45, 7]`
-4. Compare `45` and `7`, swap → `[10, 18, 17, 7, 45]`
-5. The largest element `45` is now placed at the end.
-
----
-
-## **Algorithm**
+### Algorithm
 
 1. Repeat for `n-1` passes:
    - Iterate over the list.
@@ -30,9 +20,7 @@ Bubble Sort repeatedly steps through the list, compares adjacent elements, and s
    - Swap if they are in the wrong order.
 2. Stop when no swaps are needed.
 
----
-
-## **Pseudocode**
+### Pseudocode
 
 ```pseudo
 procedure bubbleSort(array)
@@ -47,63 +35,40 @@ procedure bubbleSort(array)
 end procedure
 ```
 
----
-
-## **Implementation in Java**
+### Implementation in Java
 
 ```java
-import java.util.Arrays;
-
-public class SortingAlgorithms {
-    public static void main(String[] args) {
-        int[] arr = {45, 10, 18, 17, 7};
-        bubbleSort(arr);
-        System.out.print("Sorted array using bubble sort: " + Arrays.toString(arr));
-    }
-    public static void bubbleSort(int[] arr) {
-        int size = arr.length;
-        for (int i = 0; i < size - 1; i++) {
-            for (int j = 0; j < size - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
+public static int[] bubbleSort(int[] arr) {
+    int size = arr.length;
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
             }
         }
     }
+    return arr;
 }
 ```
 
 ---
 
-# **Selection Sort Algorithm**
+## Selection Sort Algorithm
 
-## **How Selection Sort Works?**
+### How Selection Sort Works?
 
 Selection Sort divides the list into two sections: **sorted** and **unsorted**. It repeatedly finds the **minimum (or maximum) value** in the unsorted section and swaps it with the first unsorted element, reducing the number of swaps compared to Bubble Sort.
 
-### **Example: Sorting [6, 5, 2, 8, 3, 7] in Ascending Order**
-
-- Find the minimum value (`2`), swap it with the first element → `[2, 5, 6, 8, 3, 7]`
-- Find the next minimum (`3`), swap with second element → `[2, 3, 6, 8, 5, 7]`
-- Find the next minimum (`5`), swap with third element → `[2, 3, 5, 8, 6, 7]`
-- Find the next minimum (`6`), swap with fourth element → `[2, 3, 5, 6, 8, 7]`
-- Find the next minimum (`7`), swap with fifth element → `[2, 3, 5, 6, 7, 8]`
-- The list is now sorted.
-
----
-
-## **Algorithm**
+### Algorithm
 
 1. Iterate over the array.
 2. Find the minimum element from the unsorted part.
 3. Swap it with the first unsorted element.
 4. Repeat until the list is sorted.
 
----
-
-## **Pseudocode**
+### Pseudocode
 
 ```pseudo
 procedure selectionSort(array)
@@ -116,81 +81,126 @@ procedure selectionSort(array)
 end procedure
 ```
 
----
-
-## **Implementation in Java**
+### Implementation in Java
 
 ```java
-import java.util.Arrays;
-
-public class SelectionSort {
-    public static void main(String[] args) {
-        int[] arr = {6, 5, 2, 8, 3, 7};
-        selectionSort(arr);
-        System.out.println("Sorted array using selection sort: " + Arrays.toString(arr));
-    }
-    public static void selectionSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[minIndex]) {
-                    minIndex = j;
-                }
+public static int[] selectionSort(int[] arr) {
+    int size = arr.length;
+    for (int i = 0; i < size - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < size; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
             }
-            int temp = arr[minIndex];
-            arr[minIndex] = arr[i];
-            arr[i] = temp;
         }
+        int temp = arr[minIndex];
+        arr[minIndex] = arr[i];
+        arr[i] = temp;
     }
+    return arr;
 }
 ```
 
 ---
 
-# **Insertion Sort Algorithm**
+## Insertion Sort Algorithm
 
-## **How Insertion Sort Works?**
+### How Insertion Sort Works?
 
 Insertion Sort builds a sorted array one element at a time. It picks an element and inserts it at its correct position in the already sorted part of the array.
 
-### **Example: Sorting [7, 3, 5, 2, 8] in Ascending Order**
+### Algorithm
 
-1. Take `3`, insert before `7` → `[3, 7, 5, 2, 8]`
-2. Take `5`, insert between `3` and `7` → `[3, 5, 7, 2, 8]`
-3. Take `2`, insert before `3` → `[2, 3, 5, 7, 8]`
-4. The list is now sorted.
+1. Assume the first element is sorted.
+2. Pick the next element.
+3. Insert it at its correct position by shifting larger elements to the right.
+4. Repeat until the array is sorted.
 
----
+### Pseudocode
 
-## **Implementation in Java**
+```pseudo
+procedure insertionSort(array)
+    for i from 1 to length(array) - 1 do:
+        key = array[i]
+        j = i - 1
+        while j >= 0 and array[j] > key do:
+            array[j + 1] = array[j]
+            j = j - 1
+        array[j + 1] = key
+end procedure
+```
+
+### Implementation in Java
 
 ```java
-import java.util.Arrays;
-
-public class InsertionSort {
-    public static void main(String[] args) {
-        int[] arr = {7, 3, 5, 2, 8};
-        insertionSort(arr);
-        System.out.println("Sorted array using insertion sort: " + Arrays.toString(arr));
-    }
-    public static void insertionSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 1; i < n; i++) {
-            int key = arr[i];
-            int j = i - 1;
-            while (j >= 0 && arr[j] > key) {
-                arr[j + 1] = arr[j];
-                j--;
-            }
-            arr[j + 1] = key;
+public static int[] insertionSort(int[] arr) {
+    for (int i = 1; i < arr.length; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
         }
+        arr[j + 1] = key;
     }
+    return arr;
 }
 ```
 
 ---
 
-## **Conclusion**
+## Merge Sort Algorithm
 
-Bubble Sort, Selection Sort, and Insertion Sort are simple sorting algorithms mainly used for educational purposes. More efficient sorting methods, such as Merge Sort and Quick Sort, are preferred for larger datasets.
+### How Merge Sort Works?
+
+Merge Sort is a divide-and-conquer algorithm that splits an array into two halves, sorts them recursively, and then merges them back together in sorted order.
+
+### Algorithm
+
+1. If the array has one or zero elements, return it.
+2. Split the array into two halves.
+3. Recursively sort both halves.
+4. Merge the sorted halves back together.
+
+### Pseudocode
+
+```pseudo
+procedure mergeSort(array)
+    if length(array) <= 1 then
+        return array
+    mid = length(array) / 2
+    left = mergeSort(array[0:mid])
+    right = mergeSort(array[mid:length(array)])
+    return merge(left, right)
+```
+
+### Implementation in Java
+
+```java
+public static int[] mergeSort(int[] arr) {
+    if (arr.length <= 1) {
+        return arr;
+    }
+    int mid = arr.length / 2;
+    int[] left = Arrays.copyOfRange(arr, 0, mid);
+    int[] right = Arrays.copyOfRange(arr, mid, arr.length);
+    return merge(mergeSort(left), mergeSort(right));
+}
+```
+
+---
+
+## Time & Space Complexity
+
+| Algorithm      | Best Case (Ω) | Average Case (Θ) | Worst Case (O) | Space Complexity | Time Taken (nano seconds) |
+| -------------- | ------------- | ---------------- | -------------- | ---------------- | ----------------------|
+| Bubble Sort    | O(n)          | O(n²)            | O(n²)          | O(1)             | 7800                  |
+| Selection Sort | O(n²)         | O(n²)            | O(n²)          | O(1)             | 8000                  |
+| Insertion Sort | O(n)          | O(n²)            | O(n²)          | O(1)             | 7900                  |
+| Merge Sort     | O(n log n)    | O(n log n)       | O(n log n)     | O(n)             | 45800                 |
+
+---
+
+## Conclusion
+
+Bubble Sort, Selection Sort, Insertion Sort, and Merge Sort each serve different purposes. While the first three are useful for small datasets and educational purposes, Merge Sort is more efficient for large datasets due to its **O(n log n)** time complexity.
