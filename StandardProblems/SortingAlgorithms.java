@@ -18,7 +18,7 @@ public class SortingAlgorithms {
 
         int choice = sc.nextInt();
         int[] sortedArray = {};
-        long startTime, endTime;
+        long startTime = 0, endTime = 0;
 
         switch (choice) {
             case 1 -> {
@@ -26,28 +26,32 @@ public class SortingAlgorithms {
                 sortedArray = bubbleSort(arr.clone());
                 endTime = System.nanoTime();
                 System.out.println("Sorted array using Bubble Sort: " + Arrays.toString(sortedArray));
+                break;
             }
             case 2 -> {
                 startTime = System.nanoTime();
                 sortedArray = selectionSort(arr.clone());
                 endTime = System.nanoTime();
                 System.out.println("Sorted array using Selection Sort: " + Arrays.toString(sortedArray));
+                break;
             }
             case 3 -> {
                 startTime = System.nanoTime();
                 sortedArray = insertionSort(arr.clone());
                 endTime = System.nanoTime();
                 System.out.println("Sorted array using Insertion Sort: " + Arrays.toString(sortedArray));
+                break;
             }
             case 4 -> {
                 startTime = System.nanoTime();
                 sortedArray = mergeSort(arr.clone());
                 endTime = System.nanoTime();
                 System.out.println("Sorted array using Merge Sort: " + Arrays.toString(sortedArray));
+                break;
             }
             default -> {
                 System.out.println("Invalid choice! Please enter a number between 1 and 4.");
-                return;
+                break;
             }
         }
 
