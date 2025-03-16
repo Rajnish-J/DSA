@@ -1,3 +1,4 @@
+package LeetCode_problems;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +34,7 @@ class Solution {
     // ? Main method to test the function
     public static void main(String[] args) {
         // * Create an instance of Solution class
-        Solution solution = new Solution(); 
+        Solution solution = new Solution();
 
         // * Input array
         int[] nums = {2, 7, 11, 15};
@@ -42,7 +43,7 @@ class Solution {
 
         // * Call twoSum function
         int[] result = solution.twoSum(nums, target);
-        
+
         // * Print the result
         if (result != null) {
             System.out.println("Indices: " + result[0] + ", " + result[1]);

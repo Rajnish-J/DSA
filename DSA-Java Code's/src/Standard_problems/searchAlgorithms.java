@@ -1,4 +1,6 @@
-public class searchAlgorithms {
+package Standard_problems;
+
+class searchAlgorithms {
  
     public static void main(String[] args) {
         
