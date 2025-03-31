@@ -19,7 +19,7 @@ Time complexity is a **mathematical function** that describes how execution time
 ### 🔍 Why Do We Need Time Complexity?
 Let's compare **Linear Search** and **Binary Search**:
 
-- **Linear Search**: O(N) 
+- **Linear Search**: O(N)
 - **Binary Search**: O(log N)
 
 > ✅ **Key Tip:** Always think about **large inputs**. Ignore small inputs when analyzing complexity.
@@ -37,7 +37,7 @@ Let's compare **Linear Search** and **Binary Search**:
     O(2^N)   ----/----/----/----
 ```
 
-✅ **Conclusion:** O(1) < O(log N) < O(N) < O(N²) < O(2^N)
+👉 **Conclusion:** O(1) < O(log N) < O(N) < O(N²) < O(2^N)
 
 ---
 
@@ -61,9 +61,9 @@ For **N = 1,000,000 (1 million):**
 = (1,000,000)³ + 6 seconds (since log(1M) ≈ 6)
 ```
 
-Since **1 million³ is much larger than 6**, we ignore `log N`. 
+Since **1 million³ is much larger than 6**, we ignore `log N`.
 
-✅ **Final Complexity** → **O(N³)**
+👉 **Final Complexity** → **O(N³)**
 
 ---
 
@@ -79,6 +79,53 @@ Since **1 million³ is much larger than 6**, we ignore `log N`.
 | Cubic Time | O(N³) | Triple nested loops |
 | Exponential Time | O(2^N) | Recursive Fibonacci |
 | Factorial Time | O(N!) | Traveling Salesman Problem |
+
+---
+
+## 📌 **Big O Notation (O)**
+
+- Represents the **upper bound** (worst-case scenario) of an algorithm.
+- Ensures that the function does **not exceed** a certain growth rate.
+- Example: If an algorithm runs in **O(N²)**, it means that for large **N**, the function's time complexity won't grow beyond **N²**.
+
+```plaintext
+O(N²) means:    0  < lim f(N) < ∞
+                      N -> ∞    g(N)
+```
+
+---
+
+## 📌 **Big Omega Notation (Ω)**
+
+- Represents the **lower bound** (best-case scenario) of an algorithm.
+- Guarantees that the function takes at **least** the given complexity.
+- Example: If an algorithm runs in **Ω(N)**, it means the algorithm's execution time **won't be less** than **N**.
+
+```plaintext
+Ω(N) means the algorithm **at least** takes N time.
+```
+
+---
+
+## 📌 **Theta Notation (Θ)**
+
+- When an algorithm has **both upper and lower bounds** equal to the same function.
+- Example: If an algorithm runs in **O(N²) and Ω(N²)**, then it is **Θ(N²)**.
+
+```plaintext
+Θ(N²) = O(N²) + Ω(N²)
+```
+
+---
+
+## 📌 **Little o Notation (o)**
+
+- Also gives an **upper bound**, but it's a strict upper bound (i.e., the algorithm's growth rate is **less than** the given function but **never equal** to it).
+- Example: `o(N²)` means that for large **N**, the function's execution time **grows slower** than **N²**, but never exactly at **N²**.
+
+```plaintext
+o(N²) means f(N) grows strictly slower than N².
+```
 
 ---
 
@@ -131,8 +178,5 @@ def bubble_sort(arr):
 ---
 
 ## **Final Thoughts**
-✅ **Focus on worst-case scenarios** when analyzing algorithms.
-✅ **Ignore constants and low-order terms** (e.g., O(N³ + log N) → O(N³)).
-✅ **Prioritize efficient algorithms** for large input sizes.
+👉 **Mastering time complexity helps in writing optimized code!**
 
-🚀 **Mastering time complexity helps in writing optimized code!**

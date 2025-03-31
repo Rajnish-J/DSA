@@ -37,3 +37,19 @@ what do we consider when thinking about the complexity:
 
         (10,00,000) cube + log(10,00,000) = (10,00,000) cube + 6 seconds [this 6 seconds is very small compared to 1 million cube, so ignore it]
       Always ignore the less dominating terms
+
+
+Big O notation: the value could not maximize the limit (deals with worst case)
+
+Big (omega) notation : opposite of big O notation (deals with the lowest possiblity of the algorithm)
+    * in this case the value could be atleast the expression (it is a lower bound, never below the condition)
+
+question: what if as also having the lower bound and upper bound of N squre
+    => o (N square) + big (omega) (N square), we are commonly know as theta function (basicaly combining both)
+
+    O (N square) ->        0       < lim            f(N)    < infinity
+                                 n -> infinity      g(N)
+
+
+little o notation: 
+    * this is also giving upper bound
