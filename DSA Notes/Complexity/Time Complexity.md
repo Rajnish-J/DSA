@@ -1,116 +1,138 @@
-# **Introduction to Algorithms and Algorithm Analysis**
+# Time Complexity
 
-## **What is an Algorithm?**
+## Comparison:
 
-- An **algorithm** is a set of well-defined steps or instructions used to solve a problem.
-- Every problem has multiple solutions, and an algorithm defines the structured approach to solving it.
-- Example: **Cooking a dish**
-    - Collect ingredients
-    - Prepare them (cutting, mixing, etc.)
-    - Cook them following steps
-    - Serve the dish
-- Similarly, in programming, we define an algorithm to solve a problem efficiently.
+| Old Computer | Brand New Computer |
+|-------------|------------------|
+| **Task:** Find an unavailable number in an array of size **1 million** | **Same Task** |
+| **Time Taken:** 10 seconds | **Time Taken:** 1 second |
 
-## **Why Analyze an Algorithm?**
-
-- Different algorithms can solve the same problem, but some are more **efficient** than others.
-- Efficiency is measured in terms of:
-    1. **Time Complexity** - How fast the algorithm runs
-    2. **Space Complexity** - How much memory it uses
-
-## **Time and Space Complexity**
-
-- **Time Complexity:** Measures how execution time increases with input size.
-- **Space Complexity:** Measures how much memory is needed.
-- Example:
-    - If an algorithm takes 1 second for 10 inputs, will it take 10 seconds for 100 inputs?
-    - We need a way to measure this without relying on actual execution time since it depends on machine specifications.
-
-## **Measuring Algorithm Efficiency with Big-O Notation**
-
-- We analyze efficiency using **Big-O notation**, which helps us understand how execution time grows with input size.
-- Different complexities:
-    - **O(1)** – Constant time
-    - **O(log N)** – Logarithmic time
-    - **O(N)** – Linear time
-    - **O(N log N)** – Log-linear time
-    - **O(N²)** – Quadratic time
-    - **O(2^N)** – Exponential time
-    - **O(N!)** – Factorial time
-
-## **Searching Algorithms**
-
-### **1. Linear Search**
-
-- Searches for an element **one by one** in an array.
-- Best case: The element is found in the first position (**O(1)**).
-- Worst case: The element is at the last position or not present (**O(N)**).
-- **Example:**
-    
-    ```python
-    def linear_search(arr, target):
-        for i in range(len(arr)):
-            if arr[i] == target:
-                return i  # Return index of the element
-        return -1  # Element not found
-    
-    arr = [5, 7, 9, 12, 17]
-    print(linear_search(arr, 12))  # Output: 3
-    print(linear_search(arr, 6))   # Output: -1 (Not found)
-    
-    ```
-    
-
-### **2. Binary Search**
-
-- Works only on **sorted arrays**.
-- **Divides the array** into two halves and searches in the appropriate half.
-- Significantly reduces the number of comparisons (**O(log N)**).
-- **Example:**
-    
-    ```python
-    def binary_search(arr, target):
-        left, right = 0, len(arr) - 1
-        while left <= right:
-            mid = (left + right) // 2
-            if arr[mid] == target:
-                return mid  # Return index
-            elif arr[mid] < target:
-                left = mid + 1  # Search in the right half
-            else:
-                right = mid - 1  # Search in the left half
-        return -1  # Element not found
-    
-    arr = [5, 6, 8, 9, 11, 13, 17]
-    print(binary_search(arr, 8))  # Output: 2
-    print(binary_search(arr, 10)) # Output: -1 (Not found)
-    
-    ```
-    
-
-## **Comparison of Linear and Binary Search**
-
-| Search Type | Time Complexity (Worst Case) | When to Use? |
-| --- | --- | --- |
-| **Linear Search** | O(N) | When the array is unsorted or very small |
-| **Binary Search** | O(log N) | When the array is sorted |
-
-## **Understanding Big-O with Graphs**
-
-- **O(1) (Constant Time):** Execution time remains the same regardless of input size.
-- **O(log N) (Logarithmic Time):** Execution time increases very slowly.
-- **O(N) (Linear Time):** Execution time increases proportionally to input size.
-- **O(N²) (Quadratic Time):** Execution time grows much faster with input size.
-- **O(2^N) (Exponential Time):** Execution time doubles with each new input size.
-
-## **Key Takeaways**
-
-- **Choose the best algorithm** based on efficiency, not just correctness.
-- **Linear search** is easy but slow for large inputs.
-- **Binary search** is much faster but requires a **sorted** array.
-- **Big-O notation** helps in comparing algorithms.
-- **Optimizing code** involves improving time and space complexity.
+🔹 **Conclusion:** Even though the new machine is faster, both machines have the **same time complexity**. **Time complexity ≠ Actual Time Taken**.
 
 ---
 
-These notes provide a structured explanation of algorithms, complexity, and searching techniques discussed in the transcript.
+## 📌 **Definition**
+Time complexity is a **mathematical function** that describes how execution time **grows** as input size increases. It tells us the relationship between **input size** and **time taken**.
+
+> "Time Complexity is a function that defines how the execution time increases as the input size grows."
+
+### 🔍 Why Do We Need Time Complexity?
+Let's compare **Linear Search** and **Binary Search**:
+
+- **Linear Search**: O(N) 
+- **Binary Search**: O(log N)
+
+> ✅ **Key Tip:** Always think about **large inputs**. Ignore small inputs when analyzing complexity.
+
+### Graph Comparison:
+
+```plaintext
+    Complexity Growth Chart
+    (Y-axis: Time | X-axis: Input Size)
+
+    O(1)   ----
+    O(log N)  --/--
+    O(N)     ----/----
+    O(N^2)   ----/----/----
+    O(2^N)   ----/----/----/----
+```
+
+✅ **Conclusion:** O(1) < O(log N) < O(N) < O(N²) < O(2^N)
+
+---
+
+## 📌 **Key Considerations When Analyzing Complexity**
+
+1️⃣ Always analyze the **worst-case** complexity.
+2️⃣ Always consider the **complexity for large inputs**.
+3️⃣ Ignore **constants and less dominant terms** because they don't significantly affect large inputs.
+
+#### Example:
+Given complexity:
+
+```plaintext
+O(N³ + log N)
+```
+
+For **N = 1,000,000 (1 million):**
+
+```plaintext
+(1,000,000)³ + log(1,000,000)
+= (1,000,000)³ + 6 seconds (since log(1M) ≈ 6)
+```
+
+Since **1 million³ is much larger than 6**, we ignore `log N`. 
+
+✅ **Final Complexity** → **O(N³)**
+
+---
+
+## 📌 **Common Time Complexities & Examples**
+
+| Complexity | Notation | Example |
+|------------|---------|---------|
+| Constant Time | O(1) | Array index access `arr[i]` |
+| Logarithmic Time | O(log N) | Binary search |
+| Linear Time | O(N) | Looping through an array |
+| Linearithmic Time | O(N log N) | Merge sort, Quick sort (average case) |
+| Quadratic Time | O(N²) | Nested loops (e.g., Bubble Sort) |
+| Cubic Time | O(N³) | Triple nested loops |
+| Exponential Time | O(2^N) | Recursive Fibonacci |
+| Factorial Time | O(N!) | Traveling Salesman Problem |
+
+---
+
+## 📌 **Example Code Implementations**
+
+### 1️⃣ **O(1) - Constant Time**
+```python
+# Accessing an element in an array is O(1)
+arr = [10, 20, 30, 40, 50]
+print(arr[2])  # Always takes the same time
+```
+
+### 2️⃣ **O(N) - Linear Time**
+```python
+# Looping through an array is O(N)
+def find_element(arr, target):
+    for num in arr:
+        if num == target:
+            return True
+    return False
+```
+
+### 3️⃣ **O(log N) - Logarithmic Time**
+```python
+# Binary Search Algorithm (O(log N))
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+```
+
+### 4️⃣ **O(N²) - Quadratic Time**
+```python
+# Bubble Sort (O(N²))
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+```
+
+---
+
+## **Final Thoughts**
+✅ **Focus on worst-case scenarios** when analyzing algorithms.
+✅ **Ignore constants and low-order terms** (e.g., O(N³ + log N) → O(N³)).
+✅ **Prioritize efficient algorithms** for large input sizes.
+
+🚀 **Mastering time complexity helps in writing optimized code!**

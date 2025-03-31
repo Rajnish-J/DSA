@@ -1,0 +1,39 @@
+Time complexity:
+
+comparision:
+
+old computer                                    brand new computer
+task: find an unavailable                       [same task]
+number in the array with the size of 
+1 million
+
+time taken: 10 seconds                          time taken: 1 second
+
+* Both machines having the same complexity
+conclusion: time complexity != Time taken
+
+comparsion (graph): (command: you can add graph for the comarsion)
+
+old machine                                       new machine
+
+
+definition: time complexity is a mathematical function, it is a function that tells us how the time is going to grow when the input also growing
+            function that gives us the relationship about how the time will grow as the input grows is the time complexity
+
+why we need actually time complexity ?
+comparing linear and binary search (command: add graphs for better understanding)
+tip: always think about the larger number (what happen when the size goes larger number), don't care about the smaller numbers
+
+comparision: o(1) < o(log N) < o[N]
+
+
+what do we consider when thinking about the complexity:
+    * always look for worst case complexity
+    * always look at complexity for large size or data
+    * (i): eventhough value of actual time is different they are all growing linearly
+      (ii): we dont care about actual time, we actually care about how this time and input growing, this is you we are ignoring all the constants
+    * O(N cube + log N) => from point number 2,
+        assume that we having an array with 1 million, the time taken respective to the formula is,
+
+        (10,00,000) cube + log(10,00,000) = (10,00,000) cube + 6 seconds [this 6 seconds is very small compared to 1 million cube, so ignore it]
+      Always ignore the less dominating terms
