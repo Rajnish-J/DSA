@@ -53,3 +53,5 @@ question: what if as also having the lower bound and upper bound of N squre
 
 little o notation: 
     * this is also giving upper bound
+
+    continue from 51 seconds
