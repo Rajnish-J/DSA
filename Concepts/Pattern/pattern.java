@@ -1,4 +1,4 @@
-package DSA.Pattern;
+package Concepts.Pattern;
 import java.util.*;
 
 class pattern {
