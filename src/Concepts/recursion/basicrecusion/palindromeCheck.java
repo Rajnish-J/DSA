@@ -1,4 +1,4 @@
-package Concepts.Recursion.BasicRecursion;
+package concepts.Recursion.BasicRecursion;
 
 import java.util.*;
 

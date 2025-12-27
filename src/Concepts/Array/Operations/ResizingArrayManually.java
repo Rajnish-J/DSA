@@ -1,4 +1,4 @@
-package Concepts.Array.Operations;
+package Concepts.array.Operations;
 
 import java.util.Arrays;
 import java.util.Scanner;

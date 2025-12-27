@@ -1,4 +1,4 @@
-package Concepts.BasicMaths;
+package concepts.BasicMaths;
 
 import java.util.*;
 

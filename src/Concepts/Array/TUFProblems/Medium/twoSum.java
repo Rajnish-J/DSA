@@ -1,4 +1,4 @@
-package Concepts.Array.TUFProblems.Medium;
+package Concepts.array.TUFProblems.Medium;
 
 import java.util.Arrays;
 import java.util.HashMap;

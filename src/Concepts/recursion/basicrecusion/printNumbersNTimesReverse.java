@@ -1,25 +1,24 @@
-package Concepts.Recursion.BasicRecursion;
+package concepts.Recursion.BasicRecursion;
 
-import java.util.*;
+import java.util.Scanner;
 
-public class printNumbersNTimes {
-
+public class printNumbersNTimesReverse {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number: ");
         int n = sc.nextInt();
 
-        printNumbers(1, n);
+        printNumbersReverse(n, 1);
 
         sc.close();
     }
 
-    public static void printNumbers(int i, int n) {
-        if (i > n) {
+    public static void  printNumbersReverse(int i, int n) {
+        if (i < 1) {
             return;
         } else {
             System.out.println(i);
-            printNumbers(i + 1, n);
+            printNumbersReverse(i - 1, n);
         }
     }
 }

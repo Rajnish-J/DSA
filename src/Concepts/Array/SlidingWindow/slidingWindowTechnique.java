@@ -1,4 +1,4 @@
-package Concepts.Array.SlidingWindow;
+package Concepts.array.SlidingWindow;
 
 /*
 

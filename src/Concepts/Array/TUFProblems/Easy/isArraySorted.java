@@ -1,4 +1,4 @@
-package Concepts.Array.TUFProblems.Easy;
+package Concepts.array.TUFProblems.Easy;
 
 public class isArraySorted {
     public static void main(String[] args) {
